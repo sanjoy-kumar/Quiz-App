@@ -7,6 +7,6 @@ CREATE TABLE answers (
   quiz_id INTEGER REFERENCES quizzes(id),
   question_id INTEGER REFERENCES questions(id),
   user_answer TEXT NOT NULL,
-  test_date DATE
+  test_date DATE DEFAULT NOW()
 );
 
