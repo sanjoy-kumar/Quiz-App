@@ -17,22 +17,7 @@
 
 <body>
   <!-- Top nav bar (fixed) -->
-  <nav>
-    <div class="nav-container">
-      <span id="quiz-app">Quiz App</span>
-    </div>
-    <div class="navbar-nav ml-auto ">
-      <% if (user) { %>
-        <p style="margin: 0.5em;">Logged in as: <%= user.name %>! </p>
-        </div>
-        <% } %>
-      </div>
-    <div class="nav-container" id="create-quiz">
-      <a href="/create-quiz">Create a New Quiz</a>
-      <i class="bi bi-question-circle-fill"></i>
-
-    </div>
-  </nav>
+  <%- include('partials/_navbar') %>
   <header class="container">
     <div class="headerPush"> </div>
     <div class="categories">
