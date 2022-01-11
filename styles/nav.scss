@@ -3,7 +3,8 @@ nav {
   z-index: 3;
   color: #FFEFEF;
   background-color: #7C99AC;
-  font-size: 24px;
+  font-size: 22px;
+  font-family: 'Mochiy Pop P One', sans-serif;
   justify-content: space-between;
   position: fixed;
   top: 0;
@@ -15,27 +16,32 @@ nav {
   margin: 0px;
   border-width: 0px;
 }
-#quiz-app {
-  font-size: 35px;
-  cursor: pointer;
-}
-.nav-container {
+.navbar {
   display: flex;
   flex-direction: column;
 }
-.create-quiz {
+#quiz-app {
+  font-size: 40px;
+  // cursor: pointer;
+}
+.nav-container {
+  display: flex;
+  // flex-direction: column;
+}
+#create-quiz {
   display: flex;
   align-items: flex-end;
+  color: #FFEFEF;
 }
 
-.click-create-quiz:hover {
-  top: 10px;
-  transform: scale(1.1);
- }
+// .click-create-quiz:hover {
+//   top: 10px;
+//   transform: scale(1.1);
+//  }
 
-#click-create-quiz {
-cursor: pointer;
-}
-#click-create-quiz:hover {
-  top: 10px;
-}
+// #click-create-quiz {
+// cursor: pointer;
+// }
+// #click-create-quiz:hover {
+//   top: 10px;
+// }

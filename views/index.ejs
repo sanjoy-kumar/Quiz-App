@@ -10,6 +10,12 @@
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -18,36 +24,42 @@
 <body>
   <!-- Top nav bar (fixed) -->
   <%- include('partials/_navbar') %>
-  <header class="container">
-    <div class="headerPush"> </div>
-    <div class="categories">
-      <p>Filter By:</p> <p> Science & Tech</p> <p> Pop Culture</p> <p> History</p> <p> Geography</p>
-    </div>
-  </header>
-  <main>
-    <div class="public-quizzes">
-      <div class="feature">
-        <a href="/quiz/<%=featuredQuiz.id%>">
-        <img class="main-test" src="<%= featuredQuiz.image_url %>" alt="feature-quiz"></a>
-        <div class="snapshot">
-          <p>Your Latest Quiz:</p>
-          <p><%= result.score %> / <%= result.total_score %></p>
-          <br>
-          <a href="/results">See All Results</a>
+    <header class="container">
+      <div class="headerPush"> </div>
+      <div class="categories">
+        <p class="filter">Filter By:</p>
+        <p> Science & Tech</p>
+        <p> Pop Culture</p>
+        <p> History</p>
+        <p> Geography</p>
+      </div>
+    </header>
+    <main>
+      <div class="public-quizzes">
+        <div class="feature">
+          <a href="/quiz/<%=featuredQuiz.id%>">
+            <img class="main-test" src="<%= featuredQuiz.image_url %>" alt="feature-quiz"></a>
+          <div class="snapshot">
+            <p>Your Latest Quiz:</p>
+            <p class="result">
+              <%= result.score %> / <%= result.total_score %>
+            </p>
+            <br>
+            <a href="/results">See All Results</a>
+          </div>
+        </div>
+        <div class="all-quizzes">
+          <% for (let quiz of quizzes) { %>
+            <a href="/quiz/<%=quiz.id%>">
+              <img class="quizzes" src="<%= quiz.image_url %>" /></a>
+            <% } %>
         </div>
       </div>
-      <div class="all-quizzes">
-        <% for (let quiz of quizzes) { %>
-          <a href="/quiz/<%=quiz.id%>">
-        <img class="quizzes" src="<%= quiz.image_url %>"/></a>
-        <% } %>
-      </div>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    Made by Josue, Shivani & Sanjoy
-  </footer>
+    <footer>
+      Made by Josue, Shivani & Sanjoy
+    </footer>
 </body>
 
 </html>

@@ -10,21 +10,8 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db,app) => {
-  // app.get("/", (req, res) => {
-  //   db.query(`SELECT * FROM users;`)
-  //     .then(data => {
-  //       const users = data.rows;
-  //       res.json({ users });
-  //     })
-  //     .catch(err => {
-  //       res
-  //         .status(500)
-  //         .json({ error: err.message });
-  //     });
-  // });
 
   app.get("/", (req, res) => {
- //ADD in completed_at to ERD
     Promise.all([db.query(`SELECT * FROM users WHERE name = 'Josue';`),
     db.query('SELECT * FROM quizzes;'),
     db.query('SELECT results.*, count(questions.question) as total_score FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN questions ON questions.quiz_id = results.quiz_id GROUP BY results.id LIMIT 1;')])
@@ -38,9 +25,7 @@ module.exports = (db,app) => {
         featuredQuiz: quizData.rows[0],
         quizzes: quizData.rows.slice(1, 5),
         result: resultData.rows[0],
-        // resultQuiz: resultQuiz
       };
-      console.log("result data!", templateVars.result)
       res.render("index", templateVars);
     })
 

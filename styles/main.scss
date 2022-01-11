@@ -1,5 +1,7 @@
 body {
 background: #D3DEDC;
+font-family: 'Mochiy Pop P One', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -8,10 +10,16 @@ main {
   text-align: center;
 }
 
+.filter{
+  font: bold;
+  color: rgb(71, 71, 71)
+}
 .categories {
   display:flex;
   justify-content: space-around;
   outline: 7px solid #92A9BD;
+  color: grey;
+  font-size: 20px;
 
 }
 
@@ -47,3 +55,13 @@ main {
   margin-right: 1.5em;
   margin-bottom: 2em;
 }
+ .snapshot {
+   font-size: 30px;
+   color: #69879b;
+ }
+
+ .result {
+   font-family: 'Mochiy Pop P One', sans-serif;
+   font-size: 45px;
+   color: #3e6e8f;
+ }
