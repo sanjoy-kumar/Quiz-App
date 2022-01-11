@@ -14,7 +14,7 @@ module.exports = (db,app) => {
   app.get("/", (req, res) => {
     Promise.all([db.query(`SELECT * FROM users WHERE name = 'Josue';`),
     db.query('SELECT * FROM quizzes;'),
-    db.query('SELECT results.*, count(questions.question) as total_score FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN questions ON questions.quiz_id = results.quiz_id GROUP BY results.id LIMIT 1;')])
+    db.query('SELECT results.*, count(questions.question) as total_score, quizzes.name FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN questions ON questions.quiz_id = results.quiz_id GROUP BY results.id, quizzes.name LIMIT 1;')])
     .then(data => {
       const userData = data[0];
       const quizData = data[1];
@@ -26,6 +26,7 @@ module.exports = (db,app) => {
         quizzes: quizData.rows.slice(1, 5),
         result: resultData.rows[0],
       };
+      console.log("result --->", templateVars.result)
       res.render("index", templateVars);
     })
 

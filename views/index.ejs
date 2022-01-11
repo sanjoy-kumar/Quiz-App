@@ -40,7 +40,7 @@
           <a href="/quiz/<%=featuredQuiz.id%>">
             <img class="main-test" src="<%= featuredQuiz.image_url %>" alt="feature-quiz"></a>
           <div class="snapshot">
-            <p>Your Latest Quiz:</p>
+            <p>Your Latest Quiz: <%= result.name %></p>
             <p class="result">
               <%= result.score %> / <%= result.total_score %>
             </p>
