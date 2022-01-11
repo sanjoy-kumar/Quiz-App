@@ -37,12 +37,15 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const indexRoute = require("./routes/index");
 const widgetsRoutes = require("./routes/widgets");
+const resultsRoutes = require("./routes/results");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/index", indexRoute(db));
 app.use("/api/widgets", widgetsRoutes(db));
+//app.use("/results", resultsRoutes(db));
 // Note: mount other resources here, using the same pattern above
+resultsRoutes(db,app);
 
 indexRoute(db, app);
 // Home page
