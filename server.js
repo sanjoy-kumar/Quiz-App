@@ -38,6 +38,7 @@ app.use(express.static("public"));
 const indexRoute = require("./routes/index");
 const widgetsRoutes = require("./routes/widgets");
 const resultsRoutes = require("./routes/results");
+const takeQuizRoute = require("./routes/take-quiz");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -46,7 +47,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 //app.use("/results", resultsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 resultsRoutes(db,app);
-
+takeQuizRoute(db, app);
 indexRoute(db, app);
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -57,5 +58,5 @@ indexRoute(db, app);
 // });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Example app listening on port ${PORT} `);
 });
