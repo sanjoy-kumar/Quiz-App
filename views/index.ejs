@@ -2,19 +2,71 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <title>Quiz App</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body>
+<<<<<<< HEAD
   <h1>Have fun!🥔</h1>
+=======
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <div class="nav-container">
+      <span id="quiz-app">Quiz App</span>
+    </div>
+    <div class="navbar-nav ml-auto ">
+      <% if (user) { %>
+        <p style="margin: 0.5em;">Logged in as: <%= user.name %>! </p>
+        </div>
+        <% } %>
+      </div>
+    <div class="nav-container" id="create-quiz">
+      <a href="/create-quiz">Create a New Quiz</a>
+      <i class="bi bi-question-circle-fill"></i>
+
+    </div>
+  </nav>
+  <header class="container">
+    <div class="headerPush"> </div>
+    <div class="categories">
+      <p>Filter By:</p> <p> Science & Tech</p> <p> Pop Culture</p> <p> History</p> <p> Geography</p>
+    </div>
+  </header>
+  <main>
+    <div class="public-quizzes">
+      <div class="feature">
+        <a href="/results">
+        <img class="main-test" src="https://www.udacity.com/blog/wp-content/uploads/2020/06/HTML_Blog-scaled.jpeg" alt="feature-quiz"></a>
+        <div class="snapshot">
+          <p>Your Latest Quiz:</p>
+          <p><%= result.score %> / <%= result.score %></p>
+          <br>
+          <a href="/results">See All Results</a>
+        </div>
+      </div>
+      <div class="all-quizzes">
+        <img class="quizzes" src="https://www.thatcompany.com/wp-content/uploads/2019/03/css-graphic-1.png" alt="quiz1">
+        <img class="quizzes" src="https://geekboots.sfo2.cdn.digitaloceanspaces.com/post/javascript-1567486564472.jpg" alt="quiz2">
+        <img class="quizzes" src="https://media.istockphoto.com/vectors/geography-open-book-with-hand-drawn-word-geography-and-doodle-vector-id1257796192?s=612x612" alt="quiz3">
+        <img class="quizzes" src="http://www.theinclusionsolution.me/wp-content/uploads/2014/10/Pop-Culture-620x330.jpg" alt="quiz4">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Footer information
+  </footer>
+>>>>>>> master
 </body>
 
 </html>
