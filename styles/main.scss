@@ -28,3 +28,21 @@ main {
 .bi-question-circle-fill {
   background-image: url('/images/question.svg');
 }
+
+.main-test {
+  height: 490px;
+  width: 600px;
+  margin-left: 1.5em;
+  margin-top: 2em;
+  margin-right: 1.5em;
+  border-radius: 25px
+}
+
+.quizzes {
+  height: 320px;
+  width: 320px;
+  border-radius: 25%;
+  margin-top: 2em;
+  margin-right: 1.5em;
+  margin-bottom: 2em;
+}

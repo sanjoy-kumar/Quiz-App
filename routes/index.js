@@ -9,25 +9,34 @@ const express = require('express');
 // const app = express();
 const router  = express.Router();
 
-module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then(data => {
-        const users = data.rows;
-        res.json({ users });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
+module.exports = (db,app) => {
+  // app.get("/", (req, res) => {
+  //   db.query(`SELECT * FROM users;`)
+  //     .then(data => {
+  //       const users = data.rows;
+  //       res.json({ users });
+  //     })
+  //     .catch(err => {
+  //       res
+  //         .status(500)
+  //         .json({ error: err.message });
+  //     });
+  // });
 
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users WHERE name = 'Josue';`)
+  app.get("/", (req, res) => {
+ //ADD in completed_at to ERD
+    Promise.all([db.query(`SELECT * FROM users WHERE name = 'Josue';`),
+    db.query('SELECT * FROM quizzes LIMIT 5'),
+    db.query('SELECT * FROM results LIMIT 1')])
     .then(data => {
+      const userData = data[0];
+      const quizData = data[1];
+      const resultData = data[2];
+      console.log("Data -->", data)
       const templateVars = {
-        user: data.rows[0]
+        user: userData.rows[0],
+        quizzes: quizData.rows,
+        result: resultData.rows[0]
       };
       res.render("index", templateVars);
     })

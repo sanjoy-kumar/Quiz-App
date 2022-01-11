@@ -23,3 +23,12 @@ An app that lets you create quizzes and share them between friends. The creator 
 * As a user, I want to attempt a quiz because I want to see how I do
 * As a user, I want to see the results of the quiz I just took
 * As a user, I want to share a link of the result to my friends
+
+## Routes:
+
+* Home: '/'
+* Create Quiz: '/create-quiz'
+* Quizzes: '/quizzes'
+* Results: 'results'
+* Take Quiz: '/quiz/:id'
+* User Page: '/user/:id'
