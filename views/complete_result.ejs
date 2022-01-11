@@ -18,35 +18,16 @@
 
 <body class="result-body">
   <div class="result-container">
-    <!-- <h1>Result Page</h1> -->
+<h2>Score Board !</h2>
+<h2 class="quiz-title" align="center"><%= complete_result[0].quiz_name %> Quiz </h2>
+<div class="details">
+  <% for (let result of complete_result) { %>
+    <span class="question"> Student's Name: <%= result.name %> </span>
+    <span class="answer"> Student's Score: <%= result.score %></span>
+    <br>
+  <% } %>
 
-      <h2 class="quiz-title" align="center"><%= quiz_result[0].quiz_name %> Quiz </h2>
-
-    <h4><%= quiz_result[0].name %>: Your Score </h4>
-    <h2 class="score" align="center"><%= quiz_result[0].score %></h2>
-
-    <form method="post" action="/:quiz_id">
-      <div class="buttons">
-        <button type="button" class="btn btn-info">Share ! </button>&nbsp;&nbsp;
-        <button type="submit" class="btn btn-warning">Try Again</button>
-      </div>
-
-    </form>
-  </div>
-  <br><br>
-  <div class="details">
-    <% for (let answer of quiz_result) { %>
-      <span class="question"> Question: <%= answer.question %> </span>
-      <span class="answer"> Your Answer: <%= answer.user_answer %></span>
-      <% if (answer.user_answer !== answer.answer) { %>
-      <span class="false">WRONG</span>
-      <br>
-      <% } else { %>
-        <span class="true">CORRECT</span>
-      <br>
-      <% } %>
-    <% } %>
-
+</div>
   </div>
 
 </body>
