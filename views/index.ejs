@@ -20,22 +20,7 @@
   <h1>Have fun!🥔</h1>
 =======
   <!-- Top nav bar (fixed) -->
-  <nav>
-    <div class="nav-container">
-      <span id="quiz-app">Quiz App</span>
-    </div>
-    <div class="navbar-nav ml-auto ">
-      <% if (user) { %>
-        <p style="margin: 0.5em;">Logged in as: <%= user.name %>! </p>
-        </div>
-        <% } %>
-      </div>
-    <div class="nav-container" id="create-quiz">
-      <a href="/create-quiz">Create a New Quiz</a>
-      <i class="bi bi-question-circle-fill"></i>
-
-    </div>
-  </nav>
+  <%- include('partials/_navbar') %>
   <header class="container">
     <div class="headerPush"> </div>
     <div class="categories">
@@ -46,7 +31,8 @@
     <div class="public-quizzes">
       <div class="feature">
         <a href="/results">
-        <img class="main-test" src="https://www.udacity.com/blog/wp-content/uploads/2020/06/HTML_Blog-scaled.jpeg" alt="feature-quiz"></a>
+
+        <img class="main-test" src="<%= featuredQuiz.image_url %>" alt="feature-quiz"></a>
         <div class="snapshot">
           <p>Your Latest Quiz:</p>
           <p><%= result.score %> / <%= result.score %></p>
@@ -55,10 +41,9 @@
         </div>
       </div>
       <div class="all-quizzes">
-        <img class="quizzes" src="https://www.thatcompany.com/wp-content/uploads/2019/03/css-graphic-1.png" alt="quiz1">
-        <img class="quizzes" src="https://geekboots.sfo2.cdn.digitaloceanspaces.com/post/javascript-1567486564472.jpg" alt="quiz2">
-        <img class="quizzes" src="https://media.istockphoto.com/vectors/geography-open-book-with-hand-drawn-word-geography-and-doodle-vector-id1257796192?s=612x612" alt="quiz3">
-        <img class="quizzes" src="http://www.theinclusionsolution.me/wp-content/uploads/2014/10/Pop-Culture-620x330.jpg" alt="quiz4">
+        <% for (let quiz of quizzes) { %>
+        <img class="quizzes" src="<%= quiz.image_url %>"/>
+        <% } %>
       </div>
     </div>
   </main>
