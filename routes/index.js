@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+// const app = express();
 const router  = express.Router();
 
 module.exports = (db) => {
@@ -21,5 +22,30 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.get("/", (req, res) => {
+    db.query(`SELECT * FROM users WHERE name = 'Josue';`)
+    .then(data => {
+      const templateVars = {
+        user: data.rows[0]
+      };
+      res.render("index", templateVars);
+    })
+
+  });
+
+  router.get('login/:id', (req,res) => {
+    // session cookies
+    req.session.user_id = req.params.id;
+
+    // redirect user somewhere
+    res.redirect('/');
+  });
+
+
+
   return router;
 };
+
+
+
