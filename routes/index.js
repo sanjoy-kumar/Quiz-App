@@ -32,13 +32,13 @@ module.exports = (db,app) => {
       const userData = data[0];
       const quizData = data[1];
       const resultData = data[2];
-      console.log("Data -->", data)
-      console.log('quizdata.rows', quizData.rows)
       const templateVars = {
         user: userData.rows[0],
-        quizzes: quizData.rows,
+        featuredQuiz: quizData.rows[0],
+        quizzes: quizData.rows.slice(1),
         result: resultData.rows[0]
       };
+      console.log("sliced!", templateVars.quizzes)
       res.render("index", templateVars);
     })
 
