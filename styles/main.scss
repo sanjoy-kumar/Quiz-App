@@ -11,12 +11,13 @@ main {
 .categories {
   display:flex;
   justify-content: space-around;
-  outline: 4px solid black;
+  outline: 7px solid #92A9BD;
+
 }
 
 .public-quizzes {
   margin-top: 3em;
-  outline: 4px solid black;
+  outline: 7px solid #92A9BD;
   display:flex;
 }
 

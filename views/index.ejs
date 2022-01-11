@@ -27,26 +27,26 @@
   <main>
     <div class="public-quizzes">
       <div class="feature">
-        <a href="/results">
-
+        <a href="/quiz/<%=featuredQuiz.id%>">
         <img class="main-test" src="<%= featuredQuiz.image_url %>" alt="feature-quiz"></a>
         <div class="snapshot">
           <p>Your Latest Quiz:</p>
-          <p><%= result.score %> / <%= result.score %></p>
+          <p><%= result.score %> / <%= result.total_score %></p>
           <br>
           <a href="/results">See All Results</a>
         </div>
       </div>
       <div class="all-quizzes">
         <% for (let quiz of quizzes) { %>
-        <img class="quizzes" src="<%= quiz.image_url %>"/>
+          <a href="/quiz/<%=quiz.id%>">
+        <img class="quizzes" src="<%= quiz.image_url %>"/></a>
         <% } %>
       </div>
     </div>
   </main>
 
   <footer>
-    Footer information
+    Made by Josue, Shivani & Sanjoy
   </footer>
 </body>
 
