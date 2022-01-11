@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = (db) => {
+module.exports = (db, app) => {
 
 // viewing results from the quiz
-  router.get("/:quiz_id/result", (req, res) => {
+  app.get("/:quiz_id/result", (req, res) => {
     console.log("test");
     let string = `
-    SELECT quizzes.name, users.name, results.score, question, user_answer
+    SELECT quizzes.name as quiz_name, users.name, results.score, question, user_answer, answer
     FROM results
     JOIN quizzes ON results.quiz_id = quizzes.id
     JOIN users ON users.id = results.user_id
@@ -18,7 +18,8 @@ module.exports = (db) => {
     `;
     db.query(string, [req.params.quiz_id])
     .then(data => {
-      let templateVar = {quiz_result: data.rows}
+      let templateVar = {quiz_result: data.rows};
+      console.log(templateVar);
       res.render("../views/result", templateVar);
     })
     .catch(err => {
@@ -31,7 +32,7 @@ module.exports = (db) => {
 
   // viewing users result from the quiz
 
-  router.get("/:quiz_id/result/:user_id", (req, res) => {
+  app.get("/:quiz_id/result/:user_id", (req, res) => {
     let string = `
     SELECT quizzes.name, users.username, results.score
     FROM results
@@ -43,7 +44,7 @@ module.exports = (db) => {
     db.query(string, [req.params.quiz_id, req.params.user_id])
     .then(data => {
       let templateVar = {attempt: data.rows}
-      res.render("../views/result", templateVar);
+      res.render("../views/complete_result", templateVar);
     })
   });
 
