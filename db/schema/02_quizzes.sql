@@ -7,6 +7,7 @@ CREATE TABLE quizzes (
   quiz_type BOOLEAN DEFAULT false,
   name VARCHAR(255) NOT NULL,
   description TEXT,
-  created_date DATE DEFAULT NOW(),
-  modified_date DATE
+  category TEXT,
+  image_url TEXT,
+  modified_date DATE DEFAULT NOW()
 );
