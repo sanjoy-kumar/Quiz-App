@@ -40,7 +40,15 @@ module.exports = (db, app) => {
         image_url
       ])
       .then((response) => {
-        res.redirect("/");
+        return response.rows[0];
+      })
+      .then((data) => {
+        let templateVars = {
+          id: data.id,
+          user_id: data.user_id
+        };
+        console.log(templateVars);
+        res.render("create-question", templateVars);
       });
   });
 
