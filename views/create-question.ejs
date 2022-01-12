@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <title>Quiz App</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/result.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+
+  <nav>
+    <div class="nav-container">
+      <span id="quiz-app">Quiz App</span>
+    </div>
+    <div class="navbar-nav ml-auto ">
+
+        <p style="margin: 0.5em;">User ID: <%= user_id %> </p>
+        </div>
+
+      </div>
+    <div class="nav-container" id="create-quiz">
+      <a href="/create-quiz">Create a New Quiz</a>
+      <i class="bi bi-question-circle-fill"></i>
+    </div>
+  </nav>
+
+
+  <header class="container">
+    <div class="headerPush"> </div>
+    <div class="categories">
+      <h2> Create Question</h2>
+    </div>
+  </header>
+  <main>
+    <div class="public-quizzes">
+      <div class="result-container">
+          <form method="post" action="/create-question">
+            <input type="hidden" id="quiz_id" name="quiz_id" value="<%= id %>"><br><br>
+            <label for="question">Question:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="question" name="question" placeholder="Type a question"><br><br>
+            <label for="option1">Option 1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="option1" name="option1" placeholder="Write option 1"><br><br>
+            <label for="option2">Option 2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="option2" name="option2" placeholder="Write option 2"><br><br>
+            <label for="option3">Option 3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="option3" name="option3" placeholder="Write option 3"><br><br>
+            <label for="option4">Option 4:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="option4" name="option4" placeholder="Write option 4"><br><br>
+            <label for="answer">Answer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="answer" name="answer" placeholder="Write correct answer"><br><br>
+            <input type="submit" value="Submit">
+            <br>
+          </form>
+      </div>
+
+
+    </div>
+  </main>
+  <br><br>
+
+  <footer>
+    Footer information
+  </footer>
+</body>
+
+</html>
+
