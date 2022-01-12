@@ -11,6 +11,7 @@ const router = express.Router();
 module.exports = (db, app) => {
 
   app.post("/create-question", (req, res) => {
+    const user_id = req.body.user_id;
     const quiz_id = req.body.quiz_id;
     const question = req.body.question;
     const option1 = req.body.option1;
@@ -30,7 +31,12 @@ module.exports = (db, app) => {
         answer
       ])
       .then((response) => {
-        res.redirect("/");
+        const data = response.rows[0];
+        let templateVars = {
+          quiz_id: data.quiz_id,
+          user_id: user_id
+        };
+        res.render("create-question", templateVars);
       });
   });
 

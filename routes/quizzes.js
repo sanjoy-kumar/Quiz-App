@@ -44,10 +44,9 @@ module.exports = (db, app) => {
       })
       .then((data) => {
         let templateVars = {
-          id: data.id,
+          quiz_id: data.id,
           user_id: data.user_id
         };
-        console.log(templateVars);
         res.render("create-question", templateVars);
       });
   });
