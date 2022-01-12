@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/result.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -21,12 +22,12 @@
   <header class="container">
     <div class="headerPush"> </div>
     <div class="categories">
-      <p>Filter By:</p> <p> Science & Tech</p> <p> Pop Culture</p> <p> History</p> <p> Geography</p>
+      <h2> Create Quiz</h2>
     </div>
   </header>
   <main>
     <div class="public-quizzes">
-      <div class="feature">
+      <div class="result-container">
         <form method="post" action="/create-quiz">
           <input type="hidden" id="user_id" name="user_id" value="<%= user.id %>"><br><br>
           <label for="name">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -41,7 +42,7 @@
           <select id="quiz_type" name="quiz_type" placeholder="Select Public/Private">
             <option value="true">Public</option>
             <option value="false">Private</option>
-          </select>
+          </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="submit" value="Submit">
           <br>
         </form>
