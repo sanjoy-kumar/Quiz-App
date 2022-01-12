@@ -26,12 +26,12 @@ module.exports = (db, app) => {
   //   });
 
   // });
-  let string1 = `SELECT quizzes.name as quiz_name
+  let string1 = `SELECT quizzes.id, quizzes.name as quiz_name
   FROM quizzes
   JOIN users ON users.id = quizzes.user_id
   WHERE quiz_type = 't' and user_id = $1
   ORDER BY quizzes.id;`;
-  let string2 = `SELECT quizzes.name as quiz_name
+  let string2 = `SELECT quizzes.id, quizzes.name as quiz_name
   FROM quizzes
   JOIN users ON users.id = quizzes.user_id
   WHERE quiz_type = 'f' and user_id = $1
