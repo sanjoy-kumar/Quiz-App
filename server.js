@@ -36,18 +36,23 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const indexRoute = require("./routes/index");
-const widgetsRoutes = require("./routes/widgets");
 const resultsRoutes = require("./routes/results");
+const quizzesRoutes = require("./routes/quizzes");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+
 // app.use("/api/index", indexRoute(db));
-app.use("/api/widgets", widgetsRoutes(db));
+//app.use("/api/create-quiz", quizzesRoutes(db));
 //app.use("/results", resultsRoutes(db));
+
+
 // Note: mount other resources here, using the same pattern above
 resultsRoutes(db,app);
-
+quizzesRoutes(db,app);
 indexRoute(db, app);
+
+
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
