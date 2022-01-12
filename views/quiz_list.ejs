@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="/styles/main.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/list.css" type="text/css" />
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+ <!-- Latest compiled and minified CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body class="result-body">
+    <!-- <h1>Result Page</h1> -->
+
+      <h2 class="quiz-title" align="center">List of Quizzes </h2>
+  <br><br>
+  <div class="details">
+    <h3 align="center">Public Quizzes </h3>
+    <table class="styled-table">
+      <thead>
+          <tr>
+              <th>Quiz Name</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+        <% for (let quizzes of Public) { %>
+          <tr>
+              <td><%= quizzes.quiz_name %> </td>
+              <td> <button type="button" class="btn btn-info">Share ! </button> </td>
+          </tr>
+
+          <% } %>
+          <!-- and so on... -->
+      </tbody>
+  </table>
+
+
+  </div>
+
+  <div class="details">
+    <h3 align="center">Private Quizzes </h3>
+    <table class="styled-table">
+      <thead>
+          <tr>
+              <th>Quiz Name</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+        <% for (let quizzes of Private) { %>
+          <tr>
+              <td><%= quizzes.quiz_name %> </td>
+              <td> <button type="button" class="btn btn-info">Share ! </button> </td>
+          </tr>
+
+          <% } %>
+          <!-- and so on... -->
+      </tbody>
+  </table>
+
+
+  </div>
+  <div class="details">
+    <h3 align="center">Recent Attempts of Your Quizzes </h3>
+    <table class="styled-table">
+      <thead>
+          <tr>
+              <th>Quiz Name</th>
+              <th>User Name</th>
+              <th>Score Name</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% for (let quizzes of Result) { %>
+          <tr>
+              <td><%= quizzes.quiz_name %> </td>
+              <td><%= quizzes.name %> </td>
+              <td><%= quizzes.score %> </td>
+          </tr>
+
+          <% } %>
+          <!-- and so on... -->
+      </tbody>
+  </table>
+
+
+  </div>
+
+</body>
+
+</html>
