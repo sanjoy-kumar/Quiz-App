@@ -1,5 +1,15 @@
+@import "./scss/fontawesome.scss";
+@import "./scss/solid.scss";
+// @import "./scss/regular.scss";
+// @import "./scss/_icons.scss";
+
+
 body {
+  @extend %fa-icon;
+  @extend .fas;
 background: #D3DEDC;
+font-family: 'Mochiy Pop P One', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -8,15 +18,22 @@ main {
   text-align: center;
 }
 
+.filter{
+  font: bold;
+  color: rgb(71, 71, 71)
+}
 .categories {
   display:flex;
   justify-content: space-around;
-  outline: 4px solid black;
+  outline: 7px solid #92A9BD;
+  color: grey;
+  font-size: 20px;
+
 }
 
 .public-quizzes {
   margin-top: 3em;
-  outline: 4px solid black;
+  outline: 7px solid #92A9BD;
   display:flex;
 }
 
@@ -46,3 +63,20 @@ main {
   margin-right: 1.5em;
   margin-bottom: 2em;
 }
+
+ .snapshot {
+   font-size: 30px;
+   color: #69879b;
+ }
+
+ .result {
+   font-family: 'Mochiy Pop P One', sans-serif;
+   font-size: 45px;
+   color: #3e6e8f;
+ }
+
+ footer {
+   display: flex;
+   padding: 1em;
+ }
+
