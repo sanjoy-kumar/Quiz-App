@@ -15,11 +15,11 @@ const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
 
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: ["Secret, Secret, so many secrets", "key"],
-//   maxAge: 24 * 60 * 60 * 1000 // 24 hours
-// }));
+app.use(cookieSession({
+  name: 'session',
+  keys: ["Secret, Secret, so many secrets", "key"],
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
