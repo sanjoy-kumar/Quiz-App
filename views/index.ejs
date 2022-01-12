@@ -29,10 +29,10 @@
       <div class="headerPush"> </div>
       <div class="categories">
         <p class="filter">Filter By:</p>
-        <p> Science & Tech</p>
-        <p> Pop Culture</p>
+        <a href="/category/science">Science & Tech</a>
+        <a href="/category/pop-culture">Pop Culture</a>
         <p> History</p>
-        <p> Geography</p>
+        <a href="/category/geography">Geography</a>
       </div>
     </header>
     <main>
@@ -46,7 +46,7 @@
               <%= result.score %> / <%= result.total_score %>
             </p>
             <br>
-            <a href="/results">See All Results</a>
+            <a href="/<%=result.quiz_id%>/result/<%=user.id%>">See All Results</a>
           </div>
         </div>
         <div class="all-quizzes">

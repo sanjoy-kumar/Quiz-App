@@ -10,22 +10,28 @@ nav {
   top: 0;
   width: 100%;
   -moz-box-sizing: border-box;
-  padding: 1.5em;
+  // padding: 1.5em;
   box-sizing: border-box;
   height: 120px;
   margin: 0px;
   border-width: 0px;
 }
-&:before {
-  content: fas-content($fas fa-door-open)
+#qmark{
+  display:flex;
+  font-size: 58px;
 }
 .navbar {
   display: flex;
   flex-direction: column;
+  padding: 0em;
+  align-items: center;
+  padding-right: 1.5em;
+  cursor: pointer;
 }
 #quiz-app {
   font-size: 40px;
-  // cursor: pointer;
+  padding-top: 1em;
+  padding-left: 1em;;
 }
 .nav-container {
   display: flex;
@@ -37,13 +43,15 @@ nav {
   color: #FFEFEF;
 }
 
-.bi-question-circle-fill {
-  background-image: url("../public/images/question.svg");
+.logged-user{
+  font-size: 16px;;
 }
 
-.qmark {
-  border-radius: 50%;
-}
+// .bi-question-circle-fill {
+//   background-image: url("../public/images/question.svg");
+// }
+
+
 // .click-create-quiz:hover {
 //   top: 10px;
 //   transform: scale(1.1);
