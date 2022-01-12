@@ -5,6 +5,7 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <title>Quiz App</title>
 
+  <link rel="stylesheet" href="/styles/take-quiz.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
@@ -27,26 +28,30 @@
   <div class="headerPush"></div>
     <header class="container">
       <div class="title">
-        <p>Quiz Title</p>
+        <p><%=quiz.name%> Quiz</p>
       </div>
-      <img class="quiz-image" src="*" >
+      <div>
+      <img id="image" class="quiz-image" src="<%=quiz.image_url%>">
+    </div>
     </header>
     <main>
+      <% for(let question of questions){ %>
       <div class="question-container">
         <div class="question">
-          Question:
+          <%= question.question %>
         </div>
         <div class="answer">
-          -- answer --
+          <%=question.option1%>
         </div>
         <div class="answer">
-          -- answer --
+          <%=question.option2%>
         </div><div class="answer">
-          -- answer --
+          <%=question.option3%>
         </div><div class="answer">
-          -- answer --
+          <%=question.option4%>
         </div>
       </div>
+      <% } %>
     </main>
 
     <footer>
