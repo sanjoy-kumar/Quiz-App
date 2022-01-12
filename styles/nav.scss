@@ -16,6 +16,9 @@ nav {
   margin: 0px;
   border-width: 0px;
 }
+&:before {
+  content: fas-content($fas fa-door-open)
+}
 .navbar {
   display: flex;
   flex-direction: column;
@@ -34,6 +37,13 @@ nav {
   color: #FFEFEF;
 }
 
+.bi-question-circle-fill {
+  background-image: url("../public/images/question.svg");
+}
+
+.qmark {
+  border-radius: 50%;
+}
 // .click-create-quiz:hover {
 //   top: 10px;
 //   transform: scale(1.1);
