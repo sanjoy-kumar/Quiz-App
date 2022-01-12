@@ -7,7 +7,7 @@ module.exports = (db, app) => {
   app.get("/:quiz_id/result", (req, res) => {
     console.log("test");
     let string = `
-    SELECT quizzes.name as quiz_name, users.name, results.score, question, user_answer, answer
+    SELECT quizzes.id,quizzes.name as quiz_name, users.name, results.score, question, user_answer, answer , quizzes.quiz_type
     FROM results
     JOIN quizzes ON results.quiz_id = quizzes.id
     JOIN users ON users.id = results.user_id
