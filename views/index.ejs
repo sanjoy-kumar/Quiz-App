@@ -31,7 +31,7 @@
         <p class="filter">Filter By:</p>
         <a href="/category/science">Science & Tech</a>
         <a href="/category/pop-culture">Pop Culture</a>
-        <p> History</p>
+        <a href="/category/sports">Sports</a>
         <a href="/category/geography">Geography</a>
       </div>
     </header>
@@ -39,7 +39,7 @@
       <div class="public-quizzes">
         <div class="feature">
           <a href="/quiz/<%=featuredQuiz.id%>">
-            <img class="main-test" src="<%= featuredQuiz.image_url %>" alt="feature-quiz"></a>
+            <img class="main-test" src="<%= featuredQuiz.image_url %>" title="<%=featuredQuiz.name%>" alt="feature-quiz"></a>
           <div class="snapshot">
             <p>Your Latest Quiz: <%= result.name %></p>
             <p class="result">
@@ -52,7 +52,7 @@
         <div class="all-quizzes">
           <% for (let quiz of quizzes) { %>
             <a href="/quiz/<%=quiz.id%>">
-              <img class="quizzes" src="<%= quiz.image_url %>" /></a>
+              <img class="quizzes" title="<%=quiz.name%>" src="<%= quiz.image_url %>" /></a>
             <% } %>
         </div>
       </div>
