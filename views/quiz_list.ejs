@@ -13,6 +13,9 @@
   <script type="text/javascript" src="/scripts/app.js"></script>
  <!-- Latest compiled and minified CSS -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+ <!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body class="result-body">
@@ -33,7 +36,8 @@
         <% for (let quizzes of Public) { %>
           <tr>
               <td><%= quizzes.quiz_name %> </td>
-              <td> <button type="button" class="btn btn-info">Share ! </button> </td>
+              <td> <button id ="btn" type="button" class="btn btn-info" name=<%= quizzes.id %> onclick="copyToClipboard(this.value)" value="localhost:8080/quiz/<%= quizzes.id %>">Share ! </button>
+              <p></p> </td>
           </tr>
 
           <% } %>
@@ -57,7 +61,7 @@
         <% for (let quizzes of Private) { %>
           <tr>
               <td><%= quizzes.quiz_name %> </td>
-              <td> <button type="button" class="btn btn-info">Share ! </button> </td>
+              <td> <button id ="btn" type="button" class="btn btn-info" name=<%= quizzes.id %> onclick="copyToClipboard(this.value)" value="localhost:8080/quiz/<%= quizzes.id %>">Share ! </button> </td>
           </tr>
 
           <% } %>
@@ -92,7 +96,30 @@
 
 
   </div>
-
+  <!-- <script>
+    $(document).ready(function(){
+var $temp = $("<input>");
+var $url = $('#btn').attr('value');
+$('#btn').click(function() {
+$("body").append($temp);
+$temp.val($url).select();
+document.execCommand("copy");
+$temp.remove();
+$("p").text("URL copied!");
+});
+});
+    </script> -->
+    <script>
+      function copyToClipboard(text) {
+      var inputc = document.body.appendChild(document.createElement("input"));
+      inputc.value = text;
+      inputc.focus();
+      inputc.select();
+      document.execCommand('copy');
+      inputc.parentNode.removeChild(inputc);
+      alert("URL Copied. Share your Quiz !");
+      }
+      </script>
 </body>
 
 </html>
