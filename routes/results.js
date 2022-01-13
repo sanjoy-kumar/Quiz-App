@@ -28,12 +28,11 @@ module.exports = (db, app) => {
         const countQuestionsData = data[2]
         const templateVars = {
           quiz_result: QResult.rows,
-          user: UserData.rows,
+          user: UserData.rows[0],
           countQuestions: countQuestionsData.rows
         };
-        res.render("../views/result", templateVars);
         console.log("user data---->", templateVars.user)
-        // console.log("Quiz Result 0 . score---->", templateVars.quiz_result[0].score)
+        res.render("../views/result", templateVars);
         quiz_result[0].score
         })
         .catch(err => {
@@ -69,7 +68,7 @@ module.exports = (db, app) => {
     db.query(string, [req.params.quiz_id, req.params.user_id])
     .then(data => {
       let templateVar = {complete_result: data.rows};
-      console.log(templateVar);
+      // console.log(templateVar);
       res.render("../views/complete_result", templateVar);
     })
   });
