@@ -31,7 +31,7 @@ module.exports = (db, app) => {
           user: UserData.rows[0],
           countQuestions: countQuestionsData.rows
         };
-        console.log("user data---->", templateVars.user)
+        console.log("user data---->", templateVars.quiz_result[0].id)
         res.render("../views/result", templateVars);
         quiz_result[0].score
         })
