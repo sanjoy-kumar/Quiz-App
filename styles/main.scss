@@ -7,9 +7,9 @@
 body {
   @extend %fa-icon;
   @extend .fas;
-background: #D3DEDC;
-font-family: 'Mochiy Pop P One', sans-serif;
-font-family: 'Roboto', sans-serif;
+  background: #D3DEDC;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -17,10 +17,26 @@ main {
   margin: auto;
   text-align: center;
 }
+.feature {
+  display:flex;
+  flex-direction: column;
+  align-self: flex-start;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+#public-title{
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-size: 40px;
+  color: rgb(71, 71, 71);
 
+}
 .filter{
-  font: bold;
-  color: rgb(71, 71, 71)
+  color: rgb(71, 71, 71);
+  margin: 17px auto;
 }
 .categories {
   display:flex;
@@ -28,6 +44,19 @@ main {
   outline: 7px solid #92A9BD;
   color: grey;
   font-size: 20px;
+  margin: auto;
+}
+.cat{
+  color: grey;
+  outline: none;
+  text-decoration: none;
+  margin:auto;
+}
+.cat:visited{
+  color:grey;
+}
+.cat:hover {
+  color: #FFEFEF;
 
 }
 
@@ -37,10 +66,6 @@ main {
   display:flex;
 }
 
-.feature {
-  display:flex;
-  flex-direction: column;
-}
 
 .bi-question-circle-fill {
   background-image: url('/images/question.svg');
@@ -67,12 +92,27 @@ main {
  .snapshot {
    font-size: 30px;
    color: #69879b;
+
  }
 
  .result {
    font-family: 'Mochiy Pop P One', sans-serif;
    font-size: 45px;
    color: #3e6e8f;
+   margin-bottom: 0px;
+ }
+ #result-link{
+  outline: none;
+  text-decoration: none;
+  margin-bottom: 30px;
+ }
+
+ #result-link:visited {
+  color: grey;
+}
+
+ #result-link:hover {
+  color: #d6b0b0;
  }
 
  footer {

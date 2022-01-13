@@ -20,7 +20,12 @@ nav {
 #qmark{
   display:flex;
   font-size: 58px;
+  outline: none;
+  text-decoration: none;
 }
+#qmark:visited {
+  color: #FFEFEF;
+  }
 #qmark:hover {
     // background: red;
     color: #d6b0b0;
@@ -43,11 +48,7 @@ nav {
   align-items: flex-end;
   color: #FFEFEF;
 }
-// .link{
-//   display: flex;
-//   flex-direction: column;
-//   align-content: center;
-// }
+
 #create-link {
   outline: none;
   text-decoration: none;

@@ -28,15 +28,17 @@
   <%- include('partials/_navbar') %>
     <header class="container">
       <div class="headerPush"> </div>
+      <p id="public-title">Public Quizzes</p>
       <div class="categories">
         <p class="filter">Filter By:</p>
-        <a href="/category/science">Science & Tech</a>
-        <a href="/category/pop-culture">Pop Culture</a>
-        <a href="/category/sports">Sports</a>
-        <a href="/category/geography">Geography</a>
+        <a class="cat" href="/category/science">Science & Tech</a>
+        <a class="cat" href="/category/pop-culture">Pop Culture</a>
+        <a class="cat" href="/category/sports">Sports</a>
+        <a class="cat" href="/category/geography">Geography</a>
       </div>
     </header>
     <main>
+
       <div class="public-quizzes">
         <div class="feature">
           <a href="/quiz/<%=featuredQuiz.id%>">
@@ -47,7 +49,7 @@
               <%= result.score %> / <%= result.total_score %>
             </p>
             <br>
-            <a href="/<%=result.quiz_id%>/result/<%=user.id%>">See All Results</a>
+            <a id="result-link" href="/<%=result.quiz_id%>/result/<%=user.id%>">See All Results</a>
           </div>
         </div>
         <div class="all-quizzes">
