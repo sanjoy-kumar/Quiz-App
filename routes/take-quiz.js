@@ -30,6 +30,12 @@ module.exports = (db, app) => {
       .then((response) => {
       res.redirect(`/${quiz_id}/result`);
       });
+    })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+
     });
 });
 

@@ -7,14 +7,14 @@ module.exports = (db, app) => {
   app.get("/:quiz_id/result", (req, res) => {
     console.log("test");
     let string = `
-    SELECT quizzes.id,quizzes.name as quiz_name, users.name, results.score, question, user_answer, answer , quizzes.quiz_type
+    SELECT quizzes.id,quizzes.name as quiz_name, users.name, results.score, results.completed_at, question, user_answer, answer , quizzes.quiz_type
     FROM results
     JOIN quizzes ON results.quiz_id = quizzes.id
     JOIN users ON users.id = results.user_id
     JOIN answers ON answers.user_id=results.user_id
     JOIN questions ON questions.id = answers.question_id
     WHERE quizzes.id = $1 and users.id = $2
-    ORDER BY results.id;
+    ORDER BY results.completed_at, results.id DESC;
     `;
     let string2 = "Select * from users Where id = $1;";
     // let templateVar = [];
@@ -29,6 +29,9 @@ module.exports = (db, app) => {
           user: UserData.rows
         };
         res.render("../views/result", templateVars);
+        // console.log("Quiz Result---->", templateVars.quiz_result)
+        // console.log("Quiz Result 0 . score---->", templateVars.quiz_result[0].score)
+        quiz_result[0].score
         })
         .catch(err => {
           res
