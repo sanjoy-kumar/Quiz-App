@@ -48,7 +48,7 @@
       <h2 class="quiz-title" align="center"><%= quiz_result[0].quiz_name %> Quiz </h2>
 
     <h4><%= quiz_result[0].name %>: Your Score </h4>
-    <h2 class="score" align="center"><%= quiz_result[0].score %></h2>
+    <h2 class="score" align="center"><%= quiz_result[0].score %> / <%= countQuestions[0].count %></h2>
 
     <form method="post" action="/quiz/<%= quiz_result[0].id %>">
       <div class="buttons">
