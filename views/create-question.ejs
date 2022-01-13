@@ -51,7 +51,7 @@
     </div>
   </header>
   <main>
-    <div class="categories">
+    <div class="public-quizzes">
       <div class="container">
           <form method="post" action="/create-question">
             <input type="hidden" id="user_id" name="user_id" value="<%= user_id %>"><br><br>
@@ -68,9 +68,11 @@
             <input type="text" id="option4" name="option4" placeholder="Write option 4" required><br><br>
             <label for="answer">Answer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" id="answer" name="answer" placeholder="Write correct answer" required><br><br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Add" class="button button2">
+            <button class="button button2"><a href="/">Back</a></button>
             <br> <br> <br>
           </form>
+
       </div>
 
 
