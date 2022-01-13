@@ -15,7 +15,7 @@ module.exports = (db,app) => {
     // const user_id = req.session.user_id;
     Promise.all([db.query(`SELECT * FROM users WHERE name = 'Josue';`),
     db.query('SELECT * FROM quizzes;'),
-    db.query('SELECT results.*, count(questions.question) as total_score, results.completed_at, quizzes.name FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN questions ON questions.quiz_id = results.quiz_id WHERE results.user_id = 3 GROUP BY results.id, quizzes.name ORDER BY results.completed_at LIMIT 1;'), db.query("SELECT * FROM quizzes WHERE quiz_type = 't';")])
+    db.query('SELECT results.*, count(questions.question) as total_score, results.completed_at, quizzes.name FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN questions ON questions.quiz_id = results.quiz_id WHERE results.user_id = 3 GROUP BY results.id, quizzes.name ORDER BY results.id DESC LIMIT 1;'), db.query("SELECT * FROM quizzes WHERE quiz_type = 't';")])
     .then(data => {
       const userData = data[0];
       const quizData = data[1];
@@ -41,7 +41,7 @@ module.exports = (db,app) => {
     const category = req.params.category;
     Promise.all([db.query(`SELECT * FROM users WHERE name = 'Josue';`),
     db.query("SELECT * FROM quizzes WHERE category = $1 AND quiz_type = 't';", [category]),
-    db.query('SELECT results.*, count(questions.question) as total_score, quizzes.name FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN questions ON questions.quiz_id = results.quiz_id WHERE results.user_id = 3 GROUP BY results.id, quizzes.name LIMIT 1;')])
+    db.query('SELECT results.*, count(questions.question) as total_score, quizzes.name FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN questions ON questions.quiz_id = results.quiz_id WHERE results.user_id = 3 GROUP BY results.id, quizzes.name ORDER BY results.completed_at DESC LIMIT 1;')])
     .then(data => {
       const userData = data[0];
       const quizData = data[1];
