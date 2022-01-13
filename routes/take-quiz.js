@@ -5,7 +5,7 @@ module.exports = (db, app) => {
 
 
   app.post("/quiz/:id", (req, res) => {
-    console.log("req.body---->", req.body)
+
     let promises = []
     const user_id = req.session.user_id;
     const quiz_id = req.params.id;
@@ -15,12 +15,21 @@ module.exports = (db, app) => {
       const user_answer = req.body[question_id];
       promises.push(db.query(`INSERT INTO answers (user_id,quiz_id,question_id,user_answer) VALUES ($1, $2, $3, $4);`, [user_id, quiz_id, question_id, user_answer]));
     }
+    promises.push(db.query('SELECT * FROM questions WHERE quiz_id = $1;', [quiz_id]));
 
-
-    return Promise.all(promises)
+    return db.query('SELECT * FROM questions WHERE quiz_id = $1;', [quiz_id])
     .then((response) => {
-      // res.send(req.body.question.id);
+      let result = 0;
+      for (let question of response.rows){
+        if (question.answer === req.body[question.id]) {
+          result++
+        }
+      }
+      promises.push(db.query(`INSERT INTO results (user_id,quiz_id,score) VALUES ($1, $2, $3);`, [user_id, quiz_id, result]));
+      Promise.all(promises)
+      .then((response) => {
       res.redirect(`/${quiz_id}/result`);
+      });
     });
 });
 
