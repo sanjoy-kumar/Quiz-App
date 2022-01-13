@@ -16,17 +16,36 @@ module.exports = (db, app) => {
     WHERE quizzes.id = $1 and users.id = $2
     ORDER BY results.id;
     `;
-    db.query(string, [req.params.quiz_id, req.session.user_id])
-    .then(data => {
-      let templateVar = {quiz_result: data.rows};
-      console.log(templateVar);
-      res.render("../views/result", templateVar);
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+    let string2 = "Select * from users Where id = $1;";
+    // let templateVar = [];
+    Promise.all([db.query(string,[req.params.quiz_id, req.session.user_id]),
+      db.query(string2,[req.session.user_id])])
+      .then(data => {
+        console.log(data[0].rows);
+        const QResult = data[0];
+        const UserData = data[1];
+        const templateVars = {
+          quiz_result: QResult.rows,
+          user: UserData.rows
+        };
+        res.render("../views/result", templateVars);
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
+    // db.query(string, [req.params.quiz_id, req.session.user_id])
+    // .then(data => {
+    //   let templateVar = {quiz_result: data.rows};
+    //   console.log(templateVar);
+    //   res.render("../views/result", templateVar);
+    // })
+    // .catch(err => {
+    //   res
+    //     .status(500)
+    //     .json({ error: err.message });
+    // });
 
   });
 

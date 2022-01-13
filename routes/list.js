@@ -56,6 +56,7 @@ module.exports = (db, app) => {
         user: UserData.rows
       };
       // console.log("sliced!", templateVars.quizzes)
+      console.log(templateVars);
       res.render("../views/quiz_list", templateVars);
     })
 

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <!-- <link rel="stylesheet" href="/styles/main.css" type="text/css" /> -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/list.css" type="text/css" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -25,7 +26,24 @@
 
 <body class="result-body">
     <!-- <h1>Result Page</h1> -->
+    <nav>
+      <!-- <div class="nav-container"> -->
+        <span id="quiz-app">Quiz App</span>
+      <!-- </div> -->
+  <div class="navbar">
+        <div class="logged-user">
+          Logged in <%= user[0].name %>
+        </div>
 
+        <div class="nav-container" id="create-quiz">
+          <a href="/create-quiz">
+            Create a New Quiz</a>
+        </div>
+
+      <i id="qmark" class="fas fa-question-circle"></i>
+    </div>
+    </nav>
+    <div class="headerPush"> </div>
       <h2 class="quiz-title" align="center">List of Quizzes </h2>
   <br><br>
   <div class="details">
