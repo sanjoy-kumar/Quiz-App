@@ -8,7 +8,7 @@ module.exports = (db, app) => {
     console.log("req.body---->", req.body)
   //  const valueInsideRadio =  document.querySelector('input[name="question.id]:checked').value;
 // console.log("VALUE --->", req)
-    return db
+    return db.query()
     .then((response) => {
       res.send(req.body.question.id);
       res.redirect("/:quiz_id/result");
