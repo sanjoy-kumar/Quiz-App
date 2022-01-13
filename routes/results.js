@@ -17,19 +17,22 @@ module.exports = (db, app) => {
     ORDER BY results.completed_at, results.id DESC;
     `;
     let string2 = "Select * from users Where id = $1;";
+    let string3 = "SELECT COUNT(*) FROM questions where quiz_id = $1;";
     // let templateVar = [];
     Promise.all([db.query(string,[req.params.quiz_id, req.session.user_id]),
-      db.query(string2,[req.session.user_id])])
+      db.query(string2,[req.session.user_id]), db.query(string3,[req.params.quiz_id])])
       .then(data => {
-        console.log(data[0].rows);
+        // console.log(data[0].rows);
         const QResult = data[0];
         const UserData = data[1];
+        const countQuestionsData = data[2]
         const templateVars = {
           quiz_result: QResult.rows,
-          user: UserData.rows
+          user: UserData.rows,
+          countQuestions: countQuestionsData.rows
         };
         res.render("../views/result", templateVars);
-        // console.log("Quiz Result---->", templateVars.quiz_result)
+        // console.log("count questions---->", templateVars.countQuestions)
         // console.log("Quiz Result 0 . score---->", templateVars.quiz_result[0].score)
         quiz_result[0].score
         })
