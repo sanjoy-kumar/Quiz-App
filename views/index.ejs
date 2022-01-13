@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="all-quizzes">
-          <% for (let quiz of quizzes) { %>
+          <% for (let quiz of publicQuizzes) { %>
             <a href="/quiz/<%=quiz.id%>">
               <img class="quizzes" title="<%=quiz.name%>" src="<%= quiz.image_url %>" /></a>
             <% } %>
