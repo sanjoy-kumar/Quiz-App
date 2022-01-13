@@ -6,12 +6,21 @@ module.exports = (db, app) => {
 
   app.post("/quiz/:id", (req, res) => {
     console.log("req.body---->", req.body)
-  //  const valueInsideRadio =  document.querySelector('input[name="question.id]:checked').value;
-// console.log("VALUE --->", req)
-    return db.query()
+    let promises = []
+    const user_id = req.session.user_id;
+    const quiz_id = req.params.id;
+    console.log("req.params ---->", req.params)
+    for (let question in req.body){
+      const question_id = question;
+      const user_answer = req.body[question_id];
+      promises.push(db.query(`INSERT INTO answers (user_id,quiz_id,question_id,user_answer) VALUES ($1, $2, $3, $4);`, [user_id, quiz_id, question_id, user_answer]));
+    }
+
+
+    return Promise.all(promises)
     .then((response) => {
-      res.send(req.body.question.id);
-      res.redirect("/:quiz_id/result");
+      // res.send(req.body.question.id);
+      res.redirect(`/${quiz_id}/result`);
     });
 });
 
