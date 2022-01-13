@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Home Page</title>
+    <title>Quiz Result Page</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -40,7 +40,7 @@
         <% if (quiz_result[0].quiz_type == true ) { %>
         <button id="btn" type="button" class="btn btn-info" value="localhost:8080/<%= quiz_result[0].id %>/result" onclick="copyToClipboard()"> Share ! </button>&nbsp;&nbsp;
         <% } %>
-        <button type="submit" href="/" class="btn btn-warning">Try Again</button>
+        <button type="submit" class="btn btn-warning"><a href="/quiz/<%= quiz_result[0].id %>">Try Again</a></button>
         <p></p>
       </div>
 
