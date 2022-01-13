@@ -8,19 +8,21 @@
   border-collapse: collapse;
   margin: auto;
   font-size: 0.9em;
-  font-family: sans-serif;
+  font-family: "Mochiy Pop P One", sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
   background-color: #D3DEDC;
-  color: #ffffff;
+  font-family: "Mochiy Pop P One", sans-serif;
+  // color: #ffffff;
   text-align: left;
 }
 
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+    // font-family: 'Roboto', sans-serif;
 }
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
