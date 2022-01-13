@@ -35,23 +35,28 @@
     </div>
     </header>
     <main>
+      <form action="/quiz/<%=quiz.id%>" method="post">
       <% for(let question of questions){ %>
       <div class="question-container">
         <div class="question">
           <%= question.question %>
         </div>
-        <div class="answer">
-          <%=question.option1%>
-        </div>
-        <div class="answer">
-          <%=question.option2%>
-        </div><div class="answer">
-          <%=question.option3%>
-        </div><div class="answer">
-          <%=question.option4%>
-        </div>
+        <input type="radio" id="answer1--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option1%>"></input>
+        <label for="answer1--<%=question.id%>"><%=question.option1%></label><br>
+
+        <input type="radio" id="answer2--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option2%>"></input>
+        <label for="answer2--<%=question.id%>"><%=question.option2%></label><br>
+
+        <input type="radio" id="answer3--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option3%>"></input>
+        <label for="answer3--<%=question.id%>"><%=question.option3%></label><br>
+
+        <input type="radio" id="answer4--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option4%>"></input>
+        <label for="answer4--<%=question.id%>"><%=question.option4%></label><br>
+
       </div>
       <% } %>
+      <input type="submit" value="Submit">
+    </form>
     </main>
 
     <footer>

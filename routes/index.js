@@ -24,7 +24,7 @@ module.exports = (db,app) => {
       const templateVars = {
         user: userData.rows[0],
         featuredQuiz: quizData.rows[0],
-        quizzes: quizData.rows.slice(1, 5),
+        quizzes: quizData.rows.slice(1),
         result: resultData.rows[0],
       };
       delete req.session.user_id;
