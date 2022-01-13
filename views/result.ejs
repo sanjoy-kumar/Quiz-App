@@ -14,6 +14,8 @@
 
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ <!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body class="result-body">
@@ -25,10 +27,13 @@
     <h4><%= quiz_result[0].name %>: Your Score </h4>
     <h2 class="score" align="center"><%= quiz_result[0].score %></h2>
 
-    <form method="post" action="/:quiz_id">
+    <form method="post" action="/quiz/<%= quiz_result[0].id %>">
       <div class="buttons">
-        <button type="button" class="btn btn-info">Share ! </button>&nbsp;&nbsp;
+        <% if (quiz_result[0].quiz_type == true ) { %>
+        <button id="btn" type="button" class="btn btn-info" value="localhost:8080/<%= quiz_result[0].id %>/result" onclick="copyToClipboard()"> Share ! </button>&nbsp;&nbsp;
+        <% } %>
         <button type="submit" class="btn btn-warning">Try Again</button>
+        <p></p>
       </div>
 
     </form>
@@ -49,6 +54,19 @@
 
   </div>
 
+  <script>
+    $(document).ready(function(){
+var $temp = $("<input>");
+var $url = $(location).attr('href');
+$('#btn').click(function() {
+$("body").append($temp);
+$temp.val($url).select();
+document.execCommand("copy");
+$temp.remove();
+$("p").text("URL copied!");
+});
+});
+    </script>
 </body>
 
 </html>

@@ -27,6 +27,9 @@ module.exports = (db,app) => {
         quizzes: quizData.rows.slice(1),
         result: resultData.rows[0],
       };
+      delete req.session.user_id;
+      req.session.user_id = templateVars.result.user_id;
+      console.log(req.session.user_id);
       console.log("result --->", templateVars.result)
       res.render("index", templateVars);
     })

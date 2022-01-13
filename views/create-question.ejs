@@ -10,7 +10,13 @@
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/result.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -23,30 +29,31 @@
     <div class="nav-container">
       <span id="quiz-app">Quiz App</span>
     </div>
-    <div class="navbar-nav ml-auto ">
-
-        <p style="margin: 0.5em;">User ID: <%= user_id %> </p>
-        </div>
-
+    <div class="navbar">
+      <div class="logged-user">
+        <p style="margin: 0.5em;">User ID :  <%= user_id %> </p>
       </div>
-    <div class="nav-container" id="create-quiz">
-      <a href="/create-quiz">Create a New Quiz</a>
-      <i class="bi bi-question-circle-fill"></i>
-    </div>
-  </nav>
 
+      <div class="nav-container" id="create-quiz">
+      </div>
+      <a href="/take-quiz">
+    Take a Quiz</a>
+    <i id="qmark" class="fas fa-question-circle"></i>
+  </div>
+  </nav>
 
   <header class="container">
     <div class="headerPush"> </div>
     <div class="categories">
-      <h2> Create Question</h2>
+      <h2> Add Question</h2>
     </div>
   </header>
   <main>
     <div class="public-quizzes">
       <div class="result-container">
           <form method="post" action="/create-question">
-            <input type="hidden" id="quiz_id" name="quiz_id" value="<%= id %>"><br><br>
+            <input type="hidden" id="user_id" name="user_id" value="<%= user_id %>"><br><br>
+            <input type="hidden" id="quiz_id" name="quiz_id" value="<%= quiz_id %>">
             <label for="question">Question:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" id="question" name="question" placeholder="Type a question"><br><br>
             <label for="option1">Option 1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -60,7 +67,7 @@
             <label for="answer">Answer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" id="answer" name="answer" placeholder="Write correct answer"><br><br>
             <input type="submit" value="Submit">
-            <br>
+            <br> <br> <br>
           </form>
       </div>
 
