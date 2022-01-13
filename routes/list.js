@@ -37,19 +37,23 @@ module.exports = (db, app) => {
   WHERE quiz_type = 'f' and user_id = $1
   ORDER BY quizzes.id;`;
   let string3 = 'SELECT quizzes.name as quiz_name, users.name, results.score FROM results    JOIN quizzes ON results.quiz_id = quizzes.id    JOIN users ON users.id = results.user_id    WHERE quizzes.user_id = $1    ORDER BY results.id;';
+  let string4 = "Select * from users Where id = $1;";
   // let templateVar = [];
   Promise.all([db.query(string1,[req.params.userid]),
     db.query(string2,[req.params.userid]),
-    db.query(string3,[req.params.userid])])
+    db.query(string3,[req.params.userid]),
+  db.query(string4,[req.session.user_id])])
     .then(data => {
       console.log(data[0].rows);
       const PublicData = data[0];
       const PrivateData = data[1];
       const ResultData = data[2];
+      const UserData = data[3];
       const templateVars = {
         Public: PublicData.rows,
         Private: PrivateData.rows,
-        Result: ResultData.rows
+        Result: ResultData.rows,
+        user: UserData.rows
       };
       // console.log("sliced!", templateVars.quizzes)
       res.render("../views/quiz_list", templateVars);

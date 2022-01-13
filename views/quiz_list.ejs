@@ -11,6 +11,11 @@
   <link rel="stylesheet" href="/styles/list.css" type="text/css" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- Font styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
  <!-- Latest compiled and minified CSS -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -24,7 +29,14 @@
       <h2 class="quiz-title" align="center">List of Quizzes </h2>
   <br><br>
   <div class="details">
-    <h3 align="center">Public Quizzes </h3>
+    <table class="styled-table">
+      <tr>
+        <td>
+    <h3 align="center">Public Quizzes </h3> </td>
+
+
+    <td>
+
     <table class="styled-table">
       <thead>
           <tr>
@@ -44,12 +56,22 @@
           <!-- and so on... -->
       </tbody>
   </table>
+</td>
+</tr>
+</table>
+
 
 
   </div>
 
   <div class="details">
-    <h3 align="center">Private Quizzes </h3>
+    <table class="styled-table">
+      <tr>
+        <td>
+    <h3 align="center">Private Quizzes </h3> </td>
+
+
+    <td>
     <table class="styled-table">
       <thead>
           <tr>
@@ -67,18 +89,27 @@
           <% } %>
           <!-- and so on... -->
       </tbody>
+
   </table>
+</td>
+</tr>
+</table>
 
 
   </div>
   <div class="details">
-    <h3 align="center">Recent Attempts of Your Quizzes </h3>
+    <table class="styled-table">
+        <tr>
+          <td><h3 align="center">Recent Attempts of Your Quizzes </h3></td>
+
+
+<td>
     <table class="styled-table">
       <thead>
           <tr>
               <th>Quiz Name</th>
               <th>User Name</th>
-              <th>Score Name</th>
+              <th>Score </th>
           </tr>
       </thead>
       <tbody>
@@ -92,6 +123,9 @@
           <% } %>
           <!-- and so on... -->
       </tbody>
+    </table>
+    </td>
+  </tr>
   </table>
 
 
