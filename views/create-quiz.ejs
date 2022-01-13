@@ -33,18 +33,18 @@
     </div>
   </header>
   <main>
-    <div class="public-quizzes">
-      <div class="result-container">
+    <div class="categories">
+      <div class="container">
         <form method="post" action="/create-quiz">
           <input type="hidden" id="user_id" name="user_id" value="<%= user.id %>"><br><br>
           <label for="name">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <input type="text" id="name" name="name" placeholder="Type a Quiz name"><br><br>
+          <input type="text" id="name" name="name" placeholder="Type a Quiz name" required><br><br>
           <label for="description">Description:</label>
-          <input type="text" id="description" name="description" placeholder="Write short quiz's description"><br><br>
+          <input type="text" id="description" name="description" placeholder="Write short quiz's description" required><br><br>
           <label for="category">Category:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <input type="text" id="category" name="category" placeholder="Type a category name"><br><br>
+          <input type="text" id="category" name="category" placeholder="Type a category name" required><br><br>
           <label for="image_url">Image URL:</label>
-          <input type="text" id="image_url" name="image_url" placeholder="Write short quiz's description"><br><br>
+          <input type="text" id="image_url" name="image_url" placeholder="Write short quiz's description" required><br><br>
           <label for="quiz_type">Quiz Type:&nbsp;&nbsp;</label>
           <select id="quiz_type" name="quiz_type" placeholder="Select Public/Private">
             <option value="true">Public</option>
