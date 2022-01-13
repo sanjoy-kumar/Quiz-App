@@ -1,8 +1,9 @@
 <nav>
   <div class="nav-container">
-    <a href="/">
-    <span id="quiz-app">Quiz App</span></a>
+    <a id="quiz-app" href="/">
+    <span id="logo">Quiz App</span></a>
   </div>
+
   <div class="navbar">
     <div class="logged-user">
     <% if (user) { %>
@@ -10,10 +11,9 @@
       <% } %>
     </div>
 
-    <div class="nav-container" id="create-quiz">
-    </div>
-    <a href="/create-quiz">
+    <a id="create-link" href="/create-quiz">
   Create a New Quiz</a>
   <i id="qmark" class="fas fa-question-circle"></i>
+
 </div>
 </nav>
