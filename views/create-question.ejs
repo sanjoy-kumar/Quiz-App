@@ -51,23 +51,23 @@
     </div>
   </header>
   <main>
-    <div class="public-quizzes">
-      <div class="result-container">
+    <div class="categories">
+      <div class="container">
           <form method="post" action="/create-question">
             <input type="hidden" id="user_id" name="user_id" value="<%= user_id %>"><br><br>
             <input type="hidden" id="quiz_id" name="quiz_id" value="<%= quiz_id %>">
             <label for="question">Question:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" id="question" name="question" placeholder="Type a question"><br><br>
+            <input type="text" id="question" name="question" placeholder="Type a question" required><br><br>
             <label for="option1">Option 1:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" id="option1" name="option1" placeholder="Write option 1"><br><br>
+            <input type="text" id="option1" name="option1" placeholder="Write option 1" required><br><br>
             <label for="option2">Option 2:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" id="option2" name="option2" placeholder="Write option 2"><br><br>
+            <input type="text" id="option2" name="option2" placeholder="Write option 2" required><br><br>
             <label for="option3">Option 3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" id="option3" name="option3" placeholder="Write option 3"><br><br>
+            <input type="text" id="option3" name="option3" placeholder="Write option 3" required><br><br>
             <label for="option4">Option 4:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" id="option4" name="option4" placeholder="Write option 4"><br><br>
+            <input type="text" id="option4" name="option4" placeholder="Write option 4" required><br><br>
             <label for="answer">Answer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" id="answer" name="answer" placeholder="Write correct answer"><br><br>
+            <input type="text" id="answer" name="answer" placeholder="Write correct answer" required><br><br>
             <input type="submit" value="Submit">
             <br> <br> <br>
           </form>
