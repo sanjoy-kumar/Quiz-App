@@ -17,6 +17,10 @@ main {
   margin: auto;
   text-align: center;
 }
+#user-results {
+  display: flex;
+  align-content: space-around;
+}
 .feature {
   display:flex;
   flex-direction: column;
