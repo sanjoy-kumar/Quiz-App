@@ -1,4 +1,11 @@
+@import "./scss/fontawesome.scss";
+@import "./scss/solid.scss";
+// @import "./scss/regular.scss";
+// @import "./scss/_icons.scss";
+
 nav {
+  @extend %fa-icon;
+  @extend .fas;
   display: flex;
   z-index: 3;
   color: #FFEFEF;

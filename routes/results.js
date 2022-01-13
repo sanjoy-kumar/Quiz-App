@@ -32,7 +32,7 @@ module.exports = (db, app) => {
           countQuestions: countQuestionsData.rows
         };
         res.render("../views/result", templateVars);
-        // console.log("count questions---->", templateVars.countQuestions)
+        console.log("user data---->", templateVars.user)
         // console.log("Quiz Result 0 . score---->", templateVars.quiz_result[0].score)
         quiz_result[0].score
         })
