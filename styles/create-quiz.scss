@@ -1,0 +1,49 @@
+@import "./scss/fontawesome.scss";
+@import "./scss/solid.scss";
+// @import "./scss/regular.scss";
+// @import "./scss/_icons.scss";
+
+
+@font-face {
+	font-family: "Font Awesome 5 Free";
+	font-style: normal;
+	font-weight: 900;
+	font-display: block;
+	src: url("./webfonts/fa-solid-900.eot");
+	src: url("./webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("./webfonts/fa-solid-900.woff2") format("woff2"), url("./webfonts/fa-solid-900.woff") format("woff"), url("./webfonts/fa-solid-900.ttf") format("truetype"), url("./webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+main {
+	width: 90%;
+	margin: auto;
+	text-align: center;
+}
+.categories {
+	display: flex;
+	justify-content: space-around;
+	outline: 7px solid #92A9BD;
+	color: grey;
+	font-size: 20px;
+	margin: auto;
+}
+.fa {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+}
+.fas {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+}
+body {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	background: #D3DEDC;
+	font-family: "Mochiy Pop P One", sans-serif;
+	font-family: "Roboto", sans-serif;
+}
+
+input {
+	width: 400px;
+	height: 25px;
+}
+
+
