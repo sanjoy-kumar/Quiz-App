@@ -43,21 +43,23 @@
         <div class="question">
           <%= question.question %>
         </div>
-        <input type="radio" id="answer1--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option1%>"></input>
-        <label for="answer1--<%=question.id%>"><%=question.option1%></label><br>
 
-        <input type="radio" id="answer2--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option2%>"></input>
-        <label for="answer2--<%=question.id%>"><%=question.option2%></label><br>
 
-        <input type="radio" id="answer3--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option3%>"></input>
-        <label for="answer3--<%=question.id%>"><%=question.option3%></label><br>
+        <div class="options">
+          <label class="form-control" for="answer1--<%=question.id%>" ><input type="radio" id="answer1--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option1%>"><%=question.option1%></input></label><br>
 
-        <input type="radio" id="answer4--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option4%>"></input>
-        <label for="answer4--<%=question.id%>"><%=question.option4%></label><br>
+          <label class="form-control" for="answer2--<%=question.id%>"><input type="radio" id="answer2--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option2%>"><%=question.option2%></input></label><br>
+
+          <label class="form-control" for="answer3--<%=question.id%>"><input type="radio" id="answer3--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option3%>"><%=question.option3%></input></label><br>
+
+          <label class="form-control" for="answer4--<%=question.id%>"><input type="radio" id="answer4--<%=question.id%>" name="<%=question.id%>" class="answer" value="<%=question.option4%>"><%=question.option4%></input></label><br>
+        </div>
 
       </div>
       <% } %>
-      <input type="submit" value="Submit">
+      <button class="quiz-button">
+        Submit  <i class="fas fa-check-circle"></i>
+      </button>
     </form>
     </main>
 

@@ -4,6 +4,7 @@ body {
   text-align: center;
   font-size: 28px;
   color:rgb(82, 82, 82);
+
 }
 
 #image {
@@ -31,6 +32,11 @@ body {
   color:black;
 }
 
+.options {
+  display: grid;
+  place-content: center;
+}
+
 .answer {
   font-size: 28px;
   padding: 10px;
@@ -47,7 +53,7 @@ body {
 
 
 :root {
-  --form-control-color: rebeccapurple;
+  --form-control-color: rgb(19, 104, 104);
 }
 
 *,
@@ -120,5 +126,18 @@ input[type="radio"]:checked::before {
 input[type="radio"]:focus {
   outline: max(2px, 0.15em) solid currentColor;
   outline-offset: max(2px, 0.15em);
+}
+
+.quiz-button {
+  margin:auto;
+  margin-top: 20px;
+  border-radius: 10%;
+  background-color: black;
+  color: #FFEFEF;
+  margin-top: 3em;
+  margin-bottom: 6em;
+}
+.quiz-button:hover {
+  color:rgb(82, 82, 82);
 }
 
