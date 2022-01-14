@@ -28,6 +28,8 @@ main {
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
+  background-color: #92A9BD;
+  padding-bottom: 1.6em;
 }
 #public-title{
   margin: auto;
@@ -92,26 +94,27 @@ main {
   margin-right: 1.5em;
   margin-bottom: 2em;
 }
-<<<<<<< Updated upstream
+
 
  .snapshot {
    font-size: 30px;
    color: #69879b;
-
-=======
-<<<<<<< Updated upstream
-=======
- .snapshot {
-   font-size: 30px;
-   color: #69879b;
->>>>>>> Stashed changes
+   background-color:  #FFEFEF;;
+   border-radius: 25px;
+   width: 85%;
+   margin: auto;
+   margin-top: 22px;
  }
+
+//  .snapshot {
+//    font-size: 30px;
+//    color: #69879b;
+//  }
 
  .result {
    font-family: 'Mochiy Pop P One', sans-serif;
    font-size: 45px;
    color: #3e6e8f;
-<<<<<<< Updated upstream
    margin-bottom: 0px;
  }
  #result-link{
@@ -126,21 +129,18 @@ main {
 
  #result-link:hover {
   color: #d6b0b0;
-=======
->>>>>>> Stashed changes
  }
 
  footer {
    display: flex;
    padding: 1em;
  }
-<<<<<<< Updated upstream
 
  [data-title]:hover:after {
   opacity: 1;
   transition: all 0.1s ease 0.5s;
   visibility: visible;
 }
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+.all-quizzes {
+  background-color: #92A9BD;
+}
