@@ -28,6 +28,8 @@ main {
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
+  background-color: #92A9BD;
+  padding-bottom: 1.6em;
 }
 #public-title{
   margin: auto;
@@ -93,11 +95,21 @@ main {
   margin-bottom: 2em;
 }
 
+
  .snapshot {
    font-size: 30px;
    color: #69879b;
-
+   background-color:  #FFEFEF;;
+   border-radius: 25px;
+   width: 85%;
+   margin: auto;
+   margin-top: 22px;
  }
+
+//  .snapshot {
+//    font-size: 30px;
+//    color: #69879b;
+//  }
 
  .result {
    font-family: 'Mochiy Pop P One', sans-serif;
@@ -128,4 +140,7 @@ main {
   opacity: 1;
   transition: all 0.1s ease 0.5s;
   visibility: visible;
+}
+.all-quizzes {
+  background-color: #92A9BD;
 }
