@@ -25,3 +25,4 @@ INSERT INTO questions (quiz_id, question, option1, option2, option3, option4, an
 (5, 'Who is the noice of Remy the Rat in Ratatouille?', 'Brad Garrett', 'Will Patton', 'Will Geer', 'Patton Oswalt', 'Patton Oswalt'),
 (5, 'In 2001 User released his third studio album that fetched two Grammy awards. What is the title of the album?', '8701', 'Live', 'My Way', 'Confessions', '8701'),
 (5, 'Which of the following films is based on the events that took place during the 1979-81 Iran hostage crisis?', 'The Bourne Identity', 'Life of PI', 'Argo', 'White House Down', 'Argo');
+INSERT INTO questions (quiz_id, question, option1, option2, option3, option4, answer) VALUES (6, 'What is Biology?', 'The study of life on earth', 'The study of living organisms', 'The study of the world', 'The study animals and people', 'The study of living organisms');
