@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
-
+  <title>Quiz List Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <!-- <link rel="stylesheet" href="/styles/main.css" type="text/css" /> -->
@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
  <!-- Latest compiled and minified CSS -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 
  <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -65,7 +65,7 @@
       <tbody>
         <% for (let quizzes of Public) { %>
           <tr>
-              <td><%= quizzes.quiz_name %> </td>
+              <td><a href="/quiz/<%= quizzes.id %>"><%= quizzes.quiz_name %> </a> </td>
               <td> <button id ="btn" type="button" class="btn btn-info" name=<%= quizzes.id %> onclick="copyToClipboard(this.value)" value="localhost:8080/quiz/<%= quizzes.id %>">Share ! </button>
               <p></p> </td>
           </tr>
@@ -100,7 +100,7 @@
       <tbody>
         <% for (let quizzes of Private) { %>
           <tr>
-              <td><%= quizzes.quiz_name %> </td>
+              <td><a href="/quiz/<%= quizzes.id %>"><%= quizzes.quiz_name %> </a></td>
               <td> <button id ="btn" type="button" class="btn btn-info" name=<%= quizzes.id %> onclick="copyToClipboard(this.value)" value="localhost:8080/quiz/<%= quizzes.id %>">Share ! </button> </td>
           </tr>
 
@@ -112,7 +112,36 @@
 </td>
 </tr>
 </table>
+<div class="details">
+  <table class="styled-table">
+    <tr>
+      <td>
+  <h3 align="center">Quizzes Taken By Me </h3> </td>
 
+
+  <td>
+  <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Quiz Name</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% for (let quizzes of MyResult) { %>
+        <tr>
+            <td><%= quizzes.quiz_name %> </a></td>
+            <td><%= quizzes.score %> </td>
+        </tr>
+
+        <% } %>
+        <!-- and so on... -->
+    </tbody>
+
+</table>
+</td>
+</tr>
+</table>
 
   </div>
   <div class="details">
@@ -173,5 +202,5 @@ $("p").text("URL copied!");
       }
       </script>
 </body>
-
+<%- include('partials/_footer') %>
 </html>
