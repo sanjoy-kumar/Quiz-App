@@ -41,7 +41,7 @@
         <button id="btn" type="button" class="btn btn-info" value="localhost:8080/<%= quiz_result[0].id %>/result" onclick="copyToClipboard()"> Share ! </button>&nbsp;&nbsp;
         <% } %>
         <button type="submit" class="btn btn-warning"><a href="/quiz/<%= quiz_result[0].id %>">Try Again</a></button>
-        <p></p>
+        <p id="url"></p>
       </div>
 
     </form>
@@ -61,7 +61,9 @@
     <% } %>
 
   </div>
-
+  <div class="d-grid gap-2" align="center">
+    <a class="btn btn-lg btn-primary" type="button"href="/quizzes/<%= user.id %>">List of Quizzes</a>
+  </div>
   <script>
     $(document).ready(function(){
 var $temp = $("<input>");
@@ -71,10 +73,10 @@ $("body").append($temp);
 $temp.val($url).select();
 document.execCommand("copy");
 $temp.remove();
-$("p").text("URL copied!");
+$("#url").text("URL copied!");
 });
 });
     </script>
 </body>
-
+<%- include('partials/_footer') %>
 </html>

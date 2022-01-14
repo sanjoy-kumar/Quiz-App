@@ -112,7 +112,36 @@
 </td>
 </tr>
 </table>
+<div class="details">
+  <table class="styled-table">
+    <tr>
+      <td>
+  <h3 align="center">Quizzes Taken By Me </h3> </td>
 
+
+  <td>
+  <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Quiz Name</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% for (let quizzes of MyResult) { %>
+        <tr>
+            <td><%= quizzes.quiz_name %> </a></td>
+            <td><%= quizzes.score %> </td>
+        </tr>
+
+        <% } %>
+        <!-- and so on... -->
+    </tbody>
+
+</table>
+</td>
+</tr>
+</table>
 
   </div>
   <div class="details">
@@ -173,5 +202,5 @@ $("p").text("URL copied!");
       }
       </script>
 </body>
-
+<%- include('partials/_footer') %>
 </html>
