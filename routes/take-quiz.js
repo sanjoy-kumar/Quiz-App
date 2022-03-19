@@ -9,15 +9,23 @@ module.exports = (db, app) => {
     let promises = []
     const user_id = req.session.user_id;
     const quiz_id = req.params.id;
+    // let rowsresults = 0;
     console.log("req.params ---->", req.params)
+
     for (let question in req.body){
       const question_id = question;
       const user_answer = req.body[question_id];
-      promises.push(db.query(`INSERT INTO answers (user_id,quiz_id,question_id,user_answer) VALUES ($1, $2, $3, $4);`, [user_id, quiz_id, question_id, user_answer]));
+      Promise.all([db.query('SELECT count(*) from results;')])
+      .then((response) => {
+       const rowsresults = parseInt(response[0].rows[0].count) + 1;
+        console.log(rowsresults);
+        promises.push(db.query(`INSERT INTO answers (user_id,quiz_id,question_id,result_id,user_answer) VALUES ($1, $2, $3,$4, $5);`, [user_id, quiz_id, question_id, rowsresults,user_answer]));
+      });
+
     }
     promises.push(db.query('SELECT * FROM questions WHERE quiz_id = $1;', [quiz_id]));
 
-    return db.query('SELECT * FROM questions WHERE quiz_id = $1;', [quiz_id])
+    Promise.all(db.query('SELECT * FROM questions WHERE quiz_id = $1;', [quiz_id])
     .then((response) => {
       let result = 0;
       for (let question of response.rows){
@@ -26,10 +34,13 @@ module.exports = (db, app) => {
         }
       }
       promises.push(db.query(`INSERT INTO results (user_id,quiz_id,score) VALUES ($1, $2, $3);`, [user_id, quiz_id, result]));
-      Promise.all(promises)
-      .then((response) => {
-      res.redirect(`/${quiz_id}/result`);
-      });
+
+    }))
+    Promise.all([db.query('SELECT * FROM results WHERE quiz_id = $1 ORDER BY id DESC LIMIT 1;', [quiz_id])])
+    .then((response) => {
+      const results = response[0];
+      console.log(results.rows[0]);
+    res.redirect(`/${quiz_id}/result/${results.rows[0].id}`);
     })
       .catch(err => {
         res
