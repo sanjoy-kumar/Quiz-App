@@ -34,11 +34,14 @@ module.exports = (db, app) => {
         }
       }
       promises.push(db.query(`INSERT INTO results (user_id,quiz_id,score) VALUES ($1, $2, $3);`, [user_id, quiz_id, result]));
-      Promise.all([db.query('SELECT * FROM results WHERE quiz_id = $1 ORDER BY id DESC LIMIT 1;', [quiz_id])])
+     return Promise.all([db.query('SELECT * FROM results WHERE quiz_id = $1 ORDER BY id DESC LIMIT 1;', [quiz_id])])
       .then((response) => {
         const results = response[0];
         console.log(results.rows[0]);
-      res.redirect(`/${quiz_id}/result/${results.rows[0].id}`);
+        setTimeout(function() {
+          res.redirect(`/${quiz_id}/result/${results.rows[0].id}`);
+      }, 10000);
+
       })
         .catch(err => {
           res
